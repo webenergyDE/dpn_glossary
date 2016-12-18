@@ -39,12 +39,12 @@ class Term extends AbstractEntity
      * @var string $name
      * @validate NotEmpty
      */
-    protected $name;
+    protected $name = '';
 
     /**
      * @var string $tooltiptext
      */
-    protected $tooltiptext;
+    protected $tooltiptext = '';
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Featdd\DpnGlossary\Domain\Model\Description> $descriptions
@@ -61,12 +61,17 @@ class Term extends AbstractEntity
     /**
      * @var string $termType
      */
-    protected $termType;
+    protected $termType = '';
 
     /**
      * @var string $termLang
      */
-    protected $termLang;
+    protected $termLang = '';
+
+    /**
+     * @var bool
+     */
+    protected $prefixedParsing = false;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
@@ -221,6 +226,23 @@ class Term extends AbstractEntity
     public function getTermType()
     {
         return $this->termType;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getPrefixedParsing()
+    {
+        return $this->prefixedParsing;
+    }
+
+    /**
+     * @param bool $prefixedParsing
+     * @return void
+     */
+    public function setPrefixedParsing($prefixedParsing)
+    {
+        $this->prefixedParsing = $prefixedParsing;
     }
 
     /**

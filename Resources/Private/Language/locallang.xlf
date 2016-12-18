@@ -39,6 +39,9 @@
             <trans-unit id="tx_dpnglossary_domain_model_term.media">
                 <source>Media Files</source>
             </trans-unit>
+            <trans-unit id="tx_dpnglossary_domain_model_term.prefixed_parsing">
+                <source>Only parse term if it is prefixed</source>
+            </trans-unit>
             <trans-unit id="tx_dpnglossary_domain_model_term.detailheadline">
                 <source>Detailview for term</source>
             </trans-unit>

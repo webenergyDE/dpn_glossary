@@ -39,6 +39,9 @@
             <trans-unit id="tx_dpnglossary_domain_model_term.media">
                 <target>Multimedia Dateien</target>
             </trans-unit>
+            <trans-unit id="tx_dpnglossary_domain_model_term.prefixed_parsing">
+                <target>Begriff muss ein Prefix für das Parsing haben</target>
+            </trans-unit>
             <trans-unit id="tx_dpnglossary_domain_model_term.detailheadline">
                 <target>Detailansicht für den Begriff</target>
             </trans-unit>

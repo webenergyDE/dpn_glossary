@@ -31,10 +31,10 @@ return array(
         'iconfile' => $iconFile,
     ),
     'interface' => array(
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, tooltiptext, synonyms, descriptions, term_type, term_lang, media, starttime, endtime',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, tooltiptext, synonyms, descriptions, term_type, term_lang, prefixed_parsing, media, starttime, endtime',
     ),
     'types' => array(
-        '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, hidden;;1, name, tooltiptext, synonyms, descriptions, term_type, term_lang, media, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, hidden;;1, name, tooltiptext, synonyms, descriptions, term_type, term_lang, prefixed_parsing, media, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
     ),
     'palettes' => array(
         '1' => array('showitem' => ''),
@@ -257,6 +257,14 @@ return array(
                     'maxitems' => 999,
                 ),
                 $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
+            ),
+        ),
+        'prefixed_parsing' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:dpn_glossary/Resources/Private/Language/locallang.xlf:tx_dpnglossary_domain_model_term.prefixed_parsing',
+            'config' => array(
+                'type' => 'check',
+                'default' => '0',
             ),
         ),
     ),
