@@ -32,9 +32,6 @@ return array(
     'types' => array(
         '1' => array('showitem' => 'l10n_diffsource, meaning, text;;;richtext:rte_transform[mode=ts_links]'),
     ),
-    'palettes' => array(
-        '1' => array('showitem' => ''),
-    ),
     'columns' => array(
         'sys_language_uid' => array(
             'exclude' => 1,

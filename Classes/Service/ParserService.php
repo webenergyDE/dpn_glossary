@@ -308,6 +308,10 @@ class ParserService implements SingletonInterface
                             $synonym->getName()
                         );
 
+                        $termObject->setPrefixedParsing(
+                            $synonym->getPrefixedParsing()
+                        );
+
                         if (true === (boolean) $this->settings['maxReplacementPerPageRespectSynonyms']) {
                             $this->regexParser($text, $termObject, $replacements, $wrappingCallback);
                         } else {

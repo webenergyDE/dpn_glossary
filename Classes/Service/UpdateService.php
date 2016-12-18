@@ -317,7 +317,7 @@ class UpdateService implements SingletonInterface
         $check = $this->databaseConnection->sql_query('SHOW COLUMNS FROM tx_dpnglossary_domain_model_term LIKE "prefixed_parsing"');
 
         if (0 === $check->num_rows) {
-            $this->updateChecks['updatePrefixedParsingColumn'] = 'Added missing prefixed_parsing column';
+            $this->updateChecks['updatePrefixedParsingColumn'] = 'Added missing prefixed_parsing column to term and synonym';
         }
     }
 
@@ -328,6 +328,11 @@ class UpdateService implements SingletonInterface
     {
         $this->databaseConnection->sql_query('
             ALTER TABLE tx_dpnglossary_domain_model_term
+            ADD prefixed_parsing tinyint(4) unsigned DEFAULT \'0\' NOT NULL
+        ');
+
+        $this->databaseConnection->sql_query('
+            ALTER TABLE tx_dpnglossary_domain_model_synonym
             ADD prefixed_parsing tinyint(4) unsigned DEFAULT \'0\' NOT NULL
         ');
     }

@@ -40,6 +40,11 @@ class Synonym extends AbstractEntity
     protected $name;
 
     /**
+     * @var bool
+     */
+    protected $prefixedParsing = false;
+
+    /**
      * @return string $name
      */
     public function getName()
@@ -54,5 +59,22 @@ class Synonym extends AbstractEntity
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getPrefixedParsing()
+    {
+        return $this->prefixedParsing;
+    }
+
+    /**
+     * @param bool $prefixedParsing
+     * @return void
+     */
+    public function setPrefixedParsing($prefixedParsing)
+    {
+        $this->prefixedParsing = $prefixedParsing;
     }
 }

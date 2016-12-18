@@ -23,17 +23,17 @@ return array(
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
-        'searchFields' => 'name,',
+        'searchFields' => 'name,prefixed_parsing,',
         'iconfile' => $iconFile,
     ),
     'interface' => array(
-        'showRecordFieldList' => 'l10n_parent, l10n_diffsource, name',
+        'showRecordFieldList' => 'l10n_parent, l10n_diffsource, name, prefixed_parsing',
     ),
     'types' => array(
-        '1' => array('showitem' => 'l10n_parent, l10n_diffsource, name'),
+        '1' => array('showitem' => 'l10n_parent, l10n_diffsource, --palette--;;name_prefixedParsing'),
     ),
     'palettes' => array(
-        '1' => array('showitem' => ''),
+        'name_prefixedParsing' => array('showitem' => 'name, prefixed_parsing'),
     ),
     'columns' => array(
         'sys_language_uid' => array(
@@ -96,6 +96,14 @@ return array(
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim,required',
+            ),
+        ),
+        'prefixed_parsing' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:dpn_glossary/Resources/Private/Language/locallang.xlf:tx_dpnglossary_domain_model_synonym.prefixed_parsing',
+            'config' => array(
+                'type' => 'check',
+                'default' => '0',
             ),
         ),
     ),

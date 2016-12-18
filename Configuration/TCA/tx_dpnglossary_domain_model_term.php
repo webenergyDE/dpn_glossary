@@ -27,17 +27,18 @@ return array(
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ),
-        'searchFields' => 'name,tooltiptext,descriptions,synonyms,term_type,term_lang,images,',
+        'searchFields' => 'name,tooltiptext,descriptions,synonyms,term_type,term_lang,prefixed_parsing,media,',
         'iconfile' => $iconFile,
     ),
     'interface' => array(
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, tooltiptext, synonyms, descriptions, term_type, term_lang, prefixed_parsing, media, starttime, endtime',
     ),
     'types' => array(
-        '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, hidden;;1, name, tooltiptext, synonyms, descriptions, term_type, term_lang, prefixed_parsing, media, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+        '1' => array('showitem' => 'sys_language_uid;;;;1-1-1,--palette--;;hidden_prefixedParsing, name, tooltiptext, synonyms, descriptions, --palette--;;termType_termLang, media, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
     ),
     'palettes' => array(
-        '1' => array('showitem' => ''),
+        'hidden_prefixedParsing' => array('showitem' => 'hidden;;1, prefixed_parsing'),
+        'termType_termLang' => array('showitem' => 'term_type, term_lang'),
     ),
     'columns' => array(
         'sys_language_uid' => array(

@@ -59,6 +59,9 @@
             <trans-unit id="tx_dpnglossary_domain_model_synonym.name">
                 <target>Name</target>
             </trans-unit>
+            <trans-unit id="tx_dpnglossary_domain_model_synonym.prefixed_parsing">
+                <target>Synonym muss ein Prefix für das Parsing haben</target>
+            </trans-unit>
 
 
             <trans-unit id="tx_dpnglossary_domain_model_description">
