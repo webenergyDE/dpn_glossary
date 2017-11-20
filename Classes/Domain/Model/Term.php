@@ -25,12 +25,11 @@ namespace Featdd\DpnGlossary\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Term extends AbstractEntity
@@ -100,7 +99,6 @@ class Term extends AbstractEntity
     }
 
     /**
-     * @return void
      */
     protected function initStorageObjects()
     {
@@ -119,7 +117,6 @@ class Term extends AbstractEntity
 
     /**
      * @param string $name
-     * @return void
      */
     public function setName($name)
     {
@@ -136,7 +133,6 @@ class Term extends AbstractEntity
 
     /**
      * @param string $tooltiptext
-     * @return void
      */
     public function setTooltiptext($tooltiptext)
     {
@@ -185,7 +181,6 @@ class Term extends AbstractEntity
 
     /**
      * @param string $termMode
-     * @return void
      */
     public function setTermMode($termMode)
     {
@@ -202,7 +197,6 @@ class Term extends AbstractEntity
 
     /**
      * @param string $termLink
-     * @return void
      */
     public function setTermLink($termLink)
     {
@@ -219,7 +213,6 @@ class Term extends AbstractEntity
 
     /**
      * @param bool $excludeFromParsing
-     * @return void
      */
     public function setExcludeFromParsing($excludeFromParsing)
     {
@@ -252,7 +245,6 @@ class Term extends AbstractEntity
 
     /**
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Featdd\DpnGlossary\Domain\Model\Description> $descriptions
-     * @return void
      */
     public function setDescriptions(ObjectStorage $descriptions)
     {
@@ -285,7 +277,6 @@ class Term extends AbstractEntity
 
     /**
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Featdd\DpnGlossary\Domain\Model\Synonym>
-     * @return void
      */
     public function setSynonyms(ObjectStorage $synonyms)
     {
@@ -294,7 +285,6 @@ class Term extends AbstractEntity
 
     /**
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $media
-     * @return void
      */
     public function setMedia(ObjectStorage $media)
     {
@@ -303,7 +293,6 @@ class Term extends AbstractEntity
 
     /**
      * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $file
-     * @return void
      */
     public function addMedia(FileReference $file)
     {
@@ -312,7 +301,6 @@ class Term extends AbstractEntity
 
     /**
      * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $file
-     * @return void
      */
     public function removeMedia(FileReference $file)
     {
@@ -332,7 +320,7 @@ class Term extends AbstractEntity
      */
     public function toArray()
     {
-        return array(
+        return [
             'uid' => $this->getUid(),
             'pid' => $this->getPid(),
             'name' => $this->getName(),
@@ -345,6 +333,6 @@ class Term extends AbstractEntity
             'descriptions' => $this->getDescriptions(),
             'synonyms' => $this->getSynonyms(),
             'media' => $this->getMedia(),
-        );
+        ];
     }
 }

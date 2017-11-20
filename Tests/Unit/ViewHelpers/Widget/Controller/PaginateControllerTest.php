@@ -26,11 +26,9 @@ namespace Featdd\DpnGlossary\Tests\ViewHelpers\Widget\Controller;
  ***************************************************************/
 
 use Featdd\DpnGlossary\ViewHelpers\Widget\Controller\PaginateController;
-use TYPO3\CMS\Core\Tests\AccessibleObjectInterface;
 use TYPO3\CMS\Core\Tests\UnitTestCase;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class PaginateContollerTest extends UnitTestCase
@@ -62,20 +60,20 @@ class PaginateContollerTest extends UnitTestCase
     public function paginateArgumentsTest()
     {
         $this->assertEquals(
-            array(
-                '@widget_0' => array(
+            [
+                '@widget_0' => [
                     'character' => 'T',
-                ),
-            ),
+                ],
+            ],
             PaginateController::paginationArguments('Test', $this->characters)
         );
 
         $this->assertEquals(
-            array(
-                '@widget_0' => array(
+            [
+                '@widget_0' => [
                     'character' => 'A',
-                ),
-            ),
+                ],
+            ],
             PaginateController::paginationArguments('Ätest', $this->characters)
         );
 
@@ -83,31 +81,30 @@ class PaginateContollerTest extends UnitTestCase
         $characters = $this->characters . ',Ä,Ö,Ü';
 
         $this->assertEquals(
-            array(
-                '@widget_0' => array(
+            [
+                '@widget_0' => [
                     'character' => 'AE',
-                ),
-            ),
+                ],
+            ],
             PaginateController::paginationArguments('Ätest', $characters)
         );
 
         $this->assertEquals(
-            array(
-                '@widget_0' => array(
+            [
+                '@widget_0' => [
                     'character' => 'OE',
-                ),
-            ),
+                ],
+            ],
             PaginateController::paginationArguments('Ötest', $characters)
         );
 
         $this->assertEquals(
-            array(
-                '@widget_0' => array(
+            [
+                '@widget_0' => [
                     'character' => 'UE',
-                ),
-            ),
+                ],
+            ],
             PaginateController::paginationArguments('Ütest', $characters)
         );
     }
-
 }

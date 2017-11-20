@@ -29,7 +29,6 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class SynonymRepository extends Repository
@@ -37,7 +36,7 @@ class SynonymRepository extends Repository
     /**
      * @var array
      */
-    protected $defaultOrderings = array(
+    protected $defaultOrderings = [
         'name' => QueryInterface::ORDER_ASCENDING,
-    );
+    ];
 }

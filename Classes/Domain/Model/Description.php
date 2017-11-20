@@ -28,7 +28,6 @@ namespace Featdd\DpnGlossary\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Description extends AbstractEntity
@@ -56,7 +55,6 @@ class Description extends AbstractEntity
 
     /**
      * @param string $meaning
-     * @return void
      */
     public function setMeaning($meaning)
     {
@@ -73,7 +71,6 @@ class Description extends AbstractEntity
 
     /**
      * @param string $text
-     * @return void
      */
     public function setText($text)
     {

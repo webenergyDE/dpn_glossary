@@ -1,13 +1,6 @@
 <?php
-
-if (true === version_compare(TYPO3_version, '7.5', '>=')) {
-    $iconFile = 'EXT:dpn_glossary/Resources/Public/Icons/synonym.png';
-} else {
-    $iconFile = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('dpn_glossary') . 'Resources/Public/Icons/synonym.png	';
-}
-
-return array(
-    'ctrl' => array(
+return [
+    'ctrl' => [
         'title' => 'LLL:EXT:dpn_glossary/Resources/Private/Language/locallang.xlf:tx_dpnglossary_domain_model_synonym',
         'label' => 'name',
         'sortby' => 'sorting',
@@ -23,84 +16,84 @@ return array(
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
-        'enablecolumns' => array(
+        'enablecolumns' => [
             'disabled' => 'hidden',
-        ),
+        ],
         'searchFields' => 'name,',
-        'iconfile' => $iconFile,
-    ),
-    'interface' => array(
+        'iconfile' => 'EXT:dpn_glossary/Resources/Public/Icons/synonym.png',
+    ],
+    'interface' => [
         'showRecordFieldList' => 'l10n_parent, l10n_diffsource, name',
-    ),
-    'types' => array(
-        '1' => array('showitem' => 'l10n_parent, l10n_diffsource, name'),
-    ),
-    'palettes' => array(
-        '1' => array('showitem' => ''),
-    ),
-    'columns' => array(
-        'sys_language_uid' => array(
+    ],
+    'types' => [
+        '1' => ['showitem' => 'l10n_parent, l10n_diffsource, name'],
+    ],
+    'palettes' => [
+        '1' => ['showitem' => ''],
+    ],
+    'columns' => [
+        'sys_language_uid' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'special' => 'languages',
                 'default' => 0,
-                'items' => array(
-                    array('LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1),
-                ),
-            ),
-        ),
-        'l10n_parent' => array(
+                'items' => [
+                    ['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
+                ],
+            ],
+        ],
+        'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items' => array(
-                    array('', 0),
-                ),
+                'items' => [
+                    ['', 0],
+                ],
                 'foreign_table' => 'tx_dpnglossary_domain_model_synonym',
                 'foreign_table_where' => 'AND tx_dpnglossary_domain_model_synonym.pid=###CURRENT_PID### AND tx_dpnglossary_domain_model_synonym.sys_language_uid IN (-1,0)',
                 'showIconTable' => false,
-            ),
-        ),
-        'l10n_diffsource' => array(
-            'config' => array(
+            ],
+        ],
+        'l10n_diffsource' => [
+            'config' => [
                 'type' => 'passthrough',
-            ),
-        ),
-        't3ver_label' => array(
+            ],
+        ],
+        't3ver_label' => [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'max' => 255,
-            ),
-        ),
-        'hidden' => array(
+            ],
+        ],
+        'hidden' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
-            'config' => array(
+            'config' => [
                 'type' => 'check',
-            ),
-        ),
-        'term' => array(
-            'config' => array(
+            ],
+        ],
+        'term' => [
+            'config' => [
                 'type' => 'passthrough',
-            ),
-        ),
-        'name' => array(
+            ],
+        ],
+        'name' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:dpn_glossary/Resources/Private/Language/locallang.xlf:tx_dpnglossary_domain_model_synonym.name',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'max' => 255,
                 'eval' => 'trim,required',
-            ),
-        ),
-    ),
-);
+            ],
+        ],
+    ],
+];

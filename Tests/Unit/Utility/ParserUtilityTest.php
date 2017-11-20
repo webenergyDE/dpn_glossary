@@ -29,7 +29,6 @@ use Featdd\DpnGlossary\Utility\ParserUtility;
 use TYPO3\CMS\Core\Tests\UnitTestCase;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class ParserUtilityTest extends UnitTestCase

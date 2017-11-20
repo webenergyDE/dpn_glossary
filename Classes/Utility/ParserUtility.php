@@ -28,8 +28,6 @@ namespace Featdd\DpnGlossary\Utility;
 use TYPO3\CMS\Core\SingletonInterface;
 
 /**
- *
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class ParserUtility implements SingletonInterface
@@ -149,7 +147,6 @@ class ParserUtility implements SingletonInterface
      *
      * @param \DOMText $DOMText
      * @param string $replacement
-     * @return void
      */
     public static function domTextReplacer(\DOMText $DOMText, $replacement)
     {

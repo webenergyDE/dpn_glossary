@@ -24,32 +24,29 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF['dpn_glossary'] = [
     'title'            => 'dreipunktnull Glossar',
     'description'      => 'Modern Extbase and namespaced Glossary extension',
     'category'         => 'plugin',
     'author'           => 'Daniel Dorndorf',
     'author_email'     => 'dorndorf@featdd.de',
     'author_company'   => 'dreipunktnull',
-    'shy'              => '',
-    'priority'         => '',
-    'module'           => '',
     'state'            => 'stable',
-    'internal'         => '',
-    'uploadfolder'     => '0',
+    'uploadfolder'     => false,
     'createDirs'       => '',
-    'modify_tables'    => '',
-    'clearCacheOnLoad' => 1,
-    'lockType'         => '',
-    'version'          => '2.7.3',
-    'constraints'      => array(
-        'depends'   => array(
+    'clearCacheOnLoad' => true,
+    'version'          => '2.8.0-dev',
+    'constraints'      => [
+        'depends'   => [
             'typo3'   => '7.6.0-8.7.99',
             'php'     => '5.6.0'
-        ),
-        'conflicts' => array(),
-        'suggests'  => array(
-            'realurl' => '1.10.0-0.0.0'
-        )
-    )
-);
+        ],
+        'conflicts' => [],
+        'suggests'  => [
+            'realurl' => '1.13.0-0.0.0'
+        ]
+    ],
+    'autoload' => [
+        'psr-4' => ['Featdd\\DpnGlossary\\' => 'Classes']
+    ]
+];

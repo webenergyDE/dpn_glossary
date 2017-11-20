@@ -27,14 +27,8 @@ namespace Featdd\DpnGlossary\Service;
 
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
-use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class UpdateService implements SingletonInterface
@@ -52,7 +46,7 @@ class UpdateService implements SingletonInterface
     /**
      * @var array
      */
-    protected $updateChecks = array();
+    protected $updateChecks = [];
 
     /**
      * @return \Featdd\DpnGlossary\Service\UpdateService
@@ -74,13 +68,12 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     public function makeUpdates()
     {
         foreach ($this->updateChecks as $updateMethod => $updateNotice) {
             if (method_exists($this, $updateMethod)) {
-                call_user_func(array($this, $updateMethod));
+                call_user_func([$this, $updateMethod]);
             }
         }
     }
@@ -102,7 +95,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function checkUpdatesNecessarity()
     {
@@ -115,7 +107,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function checkMissingDescriptions()
     {
@@ -182,17 +173,17 @@ class UpdateService implements SingletonInterface
         );
 
         foreach ($results as $result) {
-            $this->databaseConnection->exec_INSERTquery('tx_dpnglossary_domain_model_description', array(
+            $this->databaseConnection->exec_INSERTquery('tx_dpnglossary_domain_model_description', [
                 'term' => $result['uid'],
                 'meaning' => $result['tooltiptext'],
                 'text' => $result['description'],
-            ));
+            ]);
         }
 
         $this->databaseConnection->exec_UPDATEquery(
             'tx_dpnglossary_domain_model_term',
             '',
-            array('descriptions' => 1)
+            ['descriptions' => 1]
         );
 
         $this->databaseConnection->sql_query('
@@ -202,7 +193,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function checkSortingColumn()
     {
@@ -215,7 +205,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function updateSortingColumn()
     {
@@ -226,7 +215,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function checkMediaColumn()
     {
@@ -239,7 +227,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function updateMediaColumn()
     {
@@ -250,7 +237,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function checkSynonymTable()
     {
@@ -263,7 +249,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function updateSynonymTable()
     {
@@ -310,7 +295,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function checkExcludeFromParsingColumn()
     {
@@ -323,7 +307,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function updateExcludeFromParsingColumn()
     {
@@ -334,7 +317,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function checkTermModeAndTermLinkColumn()
     {
@@ -347,7 +329,6 @@ class UpdateService implements SingletonInterface
     }
 
     /**
-     * @return void
      */
     protected function updateTermModeAndTermLinkColumn()
     {

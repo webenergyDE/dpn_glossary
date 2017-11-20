@@ -31,7 +31,6 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class TermRepository extends Repository
@@ -41,9 +40,9 @@ class TermRepository extends Repository
     /**
      * @var array
      */
-    protected $defaultOrderings = array(
+    protected $defaultOrderings = [
         'name' => QueryInterface::ORDER_ASCENDING,
-    );
+    ];
 
     /**
      * find all terms sorted by name length
@@ -91,15 +90,15 @@ class TermRepository extends Repository
     /**
      * finds the newest terms
      *
-     * @param integer $limit
+     * @param int $limit
      * @return QueryResultInterface
      */
     public function findNewest($limit = self::DEFAULT_LIMIT)
     {
         return $this->createQuery()
-            ->setOrderings(array(
+            ->setOrderings([
                 'crdate' => QueryInterface::ORDER_ASCENDING,
-            ))
+            ])
             ->setLimit($limit)
             ->execute();
     }
@@ -107,7 +106,7 @@ class TermRepository extends Repository
     /**
      * finds random terms
      *
-     * @param integer $limit
+     * @param int $limit
      * @return array
      */
     public function findRandom($limit = self::DEFAULT_LIMIT)
@@ -135,7 +134,7 @@ class TermRepository extends Repository
         $terms = $this->findAll();
         $numbers = range(0, 9);
         $normalChars = range('a', 'z');
-        $sortedTerms = array();
+        $sortedTerms = [];
 
         /** @var Term $term */
         foreach ($terms as $term) {
@@ -163,14 +162,13 @@ class TermRepository extends Repository
                             $firstCharacter = '_';
                             break;
                     }
-
                 }
             }
 
             $firstCharacter = mb_strtoupper($firstCharacter, 'UTF-8');
 
             if (false === isset($sortedTerms[$firstCharacter])) {
-                $sortedTerms[$firstCharacter] = array();
+                $sortedTerms[$firstCharacter] = [];
             }
 
             $sortedTerms[$firstCharacter][] = $term;

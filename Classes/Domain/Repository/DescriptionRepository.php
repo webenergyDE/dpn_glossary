@@ -26,11 +26,9 @@ namespace Featdd\DpnGlossary\Domain\Repository;
  ***************************************************************/
 
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
-use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class DescriptionRepository extends Repository
@@ -38,7 +36,7 @@ class DescriptionRepository extends Repository
     /**
      * @var array
      */
-    protected $defaultOrderings = array(
+    protected $defaultOrderings = [
         'sorting' => QueryInterface::ORDER_ASCENDING,
-    );
+    ];
 }

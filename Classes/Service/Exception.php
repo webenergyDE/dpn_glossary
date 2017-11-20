@@ -26,7 +26,6 @@ namespace Featdd\DpnGlossary\Service;
  ***************************************************************/
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Exception extends \Exception

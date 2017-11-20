@@ -26,7 +26,6 @@ namespace Featdd\DpnGlossary\ViewHelpers\Widget\Controller;
  ***************************************************************/
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Exception extends \TYPO3\CMS\Fluid\Core\Widget\Exception

@@ -32,7 +32,6 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class BacklinkViewHelper extends AbstractTagBasedViewHelper
@@ -45,7 +44,7 @@ class BacklinkViewHelper extends AbstractTagBasedViewHelper
     /**
      * @var array
      */
-    protected $settings = array();
+    protected $settings = [];
 
     /**
      * @var \Featdd\DpnGlossary\Service\LinkService
@@ -54,7 +53,6 @@ class BacklinkViewHelper extends AbstractTagBasedViewHelper
     protected $linkService;
 
     /**
-     * @return void
      */
     public function initialize()
     {
@@ -69,7 +67,6 @@ class BacklinkViewHelper extends AbstractTagBasedViewHelper
     }
 
     /**
-     * @return void
      */
     public function initializeArguments()
     {
@@ -119,7 +116,7 @@ class BacklinkViewHelper extends AbstractTagBasedViewHelper
 
         return $this->linkService->buildLink(
             $pageUid,
-            array(),
+            [],
             (bool) $this->arguments['absolute'],
             $GLOBALS['TSFE']->sys_language_uid
         );

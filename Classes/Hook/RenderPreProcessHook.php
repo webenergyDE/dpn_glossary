@@ -32,7 +32,6 @@ use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class RenderPreProcessHook
@@ -43,7 +42,7 @@ class RenderPreProcessHook
     /**
      * @var array
      */
-    protected $settings = array();
+    protected $settings = [];
 
     /**
      * @var \Featdd\DpnGlossary\Service\LinkService
@@ -84,9 +83,9 @@ class RenderPreProcessHook
         ) {
             $url = $this->linkService->buildLink(
                 $this->settings['detailPage'],
-                array(
+                [
                     self::URL_PARAM_DETAIL . self::URL_PARAM_DETAIL_TERM_KEY => $getParams['term'],
-                ),
+                ],
                 true,
                 $GLOBALS['TSFE']->sys_language_uid
             );

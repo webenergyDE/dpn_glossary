@@ -29,7 +29,6 @@ use Featdd\DpnGlossary\ViewHelpers\Widget\Controller\PaginateController;
 use TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetViewHelper;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class PaginateViewHelper extends AbstractWidgetViewHelper
@@ -42,7 +41,6 @@ class PaginateViewHelper extends AbstractWidgetViewHelper
 
     /**
      * @param \Featdd\DpnGlossary\ViewHelpers\Widget\Controller\PaginateController $paginateController
-     * @return void
      */
     public function injectPaginateController(PaginateController $paginateController)
     {
@@ -50,7 +48,6 @@ class PaginateViewHelper extends AbstractWidgetViewHelper
     }
 
     /**
-     * @return void
      */
     public function initializeArguments()
     {

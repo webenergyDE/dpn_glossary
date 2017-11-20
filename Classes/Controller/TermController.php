@@ -33,7 +33,6 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class TermController extends ActionController
@@ -46,8 +45,6 @@ class TermController extends ActionController
 
     /**
      * action list
-     *
-     * @return void
      */
     public function listAction()
     {
@@ -63,8 +60,6 @@ class TermController extends ActionController
 
     /**
      * action previewNewest
-     *
-     * @return void
      */
     public function previewNewestAction()
     {
@@ -82,8 +77,6 @@ class TermController extends ActionController
 
     /**
      * action previewRandom
-     *
-     * @return void
      */
     public function previewRandomAction()
     {
@@ -101,8 +94,6 @@ class TermController extends ActionController
 
     /**
      * action previewSelected
-     *
-     * @return void
      */
     public function previewSelectedAction()
     {
@@ -118,8 +109,7 @@ class TermController extends ActionController
      * action show
      *
      * @param \Featdd\DpnGlossary\Domain\Model\Term $term
-     * @param integer $pageUid
-     * @return void
+     * @param int $pageUid
      */
     public function showAction(Term $term, $pageUid = null)
     {

@@ -33,7 +33,6 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class LinkService implements SingletonInterface
@@ -66,11 +65,11 @@ class LinkService implements SingletonInterface
      * @param int $sysLanguageUid
      * @return string
      */
-    public function buildLink($pageId, array $arguments = array(), $absolut = false, $sysLanguageUid = 0)
+    public function buildLink($pageId, array $arguments = [], $absolut = false, $sysLanguageUid = 0)
     {
         if (0 < $sysLanguageUid) {
             $arguments = array_merge(
-                array('L' => $sysLanguageUid),
+                ['L' => $sysLanguageUid],
                 $arguments
             );
         }

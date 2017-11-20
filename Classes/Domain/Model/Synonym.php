@@ -28,7 +28,6 @@ namespace Featdd\DpnGlossary\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class Synonym extends AbstractEntity
@@ -51,7 +50,6 @@ class Synonym extends AbstractEntity
 
     /**
      * @param string $name
-     * @return void
      */
     public function setName($name)
     {

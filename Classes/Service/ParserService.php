@@ -30,15 +30,13 @@ use Featdd\DpnGlossary\Domain\Repository\TermRepository;
 use Featdd\DpnGlossary\Utility\ParserUtility;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
- *
- * @package dpn_glossary
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
 class ParserService implements SingletonInterface
@@ -48,10 +46,10 @@ class ParserService implements SingletonInterface
     /**
      * tags to be always ignored by parsing
      */
-    public static $alwaysIgnoreParentTags = array(
+    public static $alwaysIgnoreParentTags = [
         'a',
         'script',
-    );
+    ];
 
     /**
      * @var ContentObjectRenderer
@@ -61,17 +59,17 @@ class ParserService implements SingletonInterface
     /**
      * @var array
      */
-    protected $terms = array();
+    protected $terms = [];
 
     /**
      * @var array
      */
-    protected $tsConfig = array();
+    protected $tsConfig = [];
 
     /**
      * @var array
      */
-    protected $settings = array();
+    protected $settings = [];
 
     /**
      * Boots up:
@@ -110,7 +108,8 @@ class ParserService implements SingletonInterface
             $querySettings->setStoragePageIds(
                 GeneralUtility::trimExplode(
                     ',',
-                    $this->tsConfig['persistence.']['storagePid'])
+                    $this->tsConfig['persistence.']['storagePid']
+                )
             );
             // Set current language uid
             $querySettings->setLanguageUid($GLOBALS['TSFE']->sys_language_uid);
@@ -123,10 +122,10 @@ class ParserService implements SingletonInterface
             //Sort terms with an individual counter for max replacement per page
             /** @var Term $term */
             foreach ($terms as $term) {
-                $this->terms[] = array(
+                $this->terms[] = [
                     'term' => $term,
                     'replacements' => (int) $this->settings['maxReplacementPerPage'],
-                );
+                ];
             }
         }
     }
@@ -136,7 +135,7 @@ class ParserService implements SingletonInterface
      * or false if parsers has to be aborted
      *
      * @param string $html
-     * @return string|boolean
+     * @return string|bool
      * @throws Exception
      */
     public function pageParser($html)
@@ -259,7 +258,7 @@ class ParserService implements SingletonInterface
                                 $childNode,
                                 $this->textParser(
                                     $childNode->ownerDocument->saveHTML($childNode),
-                                    array($this, 'termWrapper')
+                                    [$this, 'termWrapper']
                                 )
                             );
                         }
@@ -330,7 +329,7 @@ class ParserService implements SingletonInterface
      *
      * @param string $text
      * @param Term $term
-     * @param integer $replacements
+     * @param int $replacements
      * @param callable $wrappingCallback
      */
     protected function regexParser(&$text, Term $term, &$replacements, callable $wrappingCallback)
